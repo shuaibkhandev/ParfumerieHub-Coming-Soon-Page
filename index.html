@@ -113,17 +113,20 @@
     </div>
 
     <p>✨ For now, visit us on Instagram to explore and shop our perfumes:</p>
-    <a href="https://www.instagram.com/parfumerie_hub/" target="_blank" class="insta-btn">
+    <a href="https://www.instagram.com/YOUR-INSTAGRAM-HANDLE" target="_blank" class="insta-btn">
       📷 Visit Our Instagram
     </a>
   </div>
 
   <script>
-    const launchDate = new Date("Dec 31, 2025 00:00:00").getTime();
+    // Set launch date to 7 days from now
+    const launchDate = new Date();
+    launchDate.setDate(launchDate.getDate() + 7);
+    const countdownTime = launchDate.getTime();
 
     const timer = setInterval(() => {
       const now = new Date().getTime();
-      const distance = launchDate - now;
+      const distance = countdownTime - now;
 
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
