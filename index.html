@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ParfumerieHub - Coming Soon</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #f7d794;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #ddd;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .time-box {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 15px 20px;
+      border-radius: 8px;
+      min-width: 70px;
+    }
+
+    .time-box span {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #f7d794;
+    }
+
+    .time-label {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .insta-btn {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #E1306C;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .insta-btn:hover {
+      background: #c72a5d;
+    }
+
+    @media (max-width: 500px) {
+      .countdown {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🌸 ParfumerieHub</h1>
+    <p>We’re crafting something fragrant and fabulous. Stay tuned!</p>
+
+    <div class="countdown">
+      <div class="time-box">
+        <span id="days">0</span>
+        <div class="time-label">Days</div>
+      </div>
+      <div class="time-box">
+        <span id="hours">0</span>
+        <div class="time-label">Hours</div>
+      </div>
+      <div class="time-box">
+        <span id="minutes">0</span>
+        <div class="time-label">Minutes</div>
+      </div>
+      <div class="time-box">
+        <span id="seconds">0</span>
+        <div class="time-label">Seconds</div>
+      </div>
+    </div>
+
+    <p>✨ For now, visit us on Instagram to explore and shop our perfumes:</p>
+    <a href="https://www.instagram.com/parfumerie_hub/" target="_blank" class="insta-btn">
+      📷 Visit Our Instagram
+    </a>
+  </div>
+
+  <script>
+    const launchDate = new Date("Dec 31, 2025 00:00:00").getTime();
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+
+      if (distance <= 0) {
+        clearInterval(timer);
+        document.querySelector(".countdown").innerHTML = "<h2>We Are Live!</h2>";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
